@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-gradient {
+  background: rgb(15, 23, 42);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f172a",endColorstr="#002140",GradientType=1);
+}
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Add at the end of your globals.css */
+.skill-3d-card {
+  perspective: 1200px;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s,
+    border 0.6s, background 0.6s;
+  will-change: transform, box-shadow, border, background;
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  height: 150px;
+  max-height: 180px;
+}
+@media (max-width: 640px) {
+  .skill-3d-card {
+    min-height: 80px;
+    height: 100px;
+    max-height: 120px;
+  }
+}
+.skill-3d-inner {
+  transition: none;
+  will-change: auto;
+}
+.skill-3d-card:hover {
+  transform: rotateX(-32deg) scale(1.08);
+  box-shadow: 0 24px 60px 0 rgba(0, 0, 0, 0.45), 0 0 32px 4px #ffd700cc;
+  border: 2px solid #ffd700cc;
+  background: var(--card);
+  color: var(--text);
+}
+.skill-3d-card .skill-3d-text {
+  position: absolute;
+  left: 50%;
+  top: 84%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+  transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), text-shadow 0.6s, color 0.6s,
+    opacity 0.6s;
+  text-shadow: none;
+  opacity: 1;
+}
+.skill-3d-card:hover .skill-3d-text {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.12);
+  width: max-content;
+  text-align: center;
+  text-shadow: 0 8px 32px #ffd700cc, 0 2px 8px #000a;
+  opacity: 1;
+}
+.skill-3d-img {
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s;
+}
+.skill-3d-card:hover .skill-3d-img {
+  opacity: 0;
+}
+
+html.light {
+  --bg: #fff;
+  --text: #18181b;
+  --subtext: #4b5563;
+  --card: #d8dfef;
+  --card-border: #e5e7eb;
+  --card-rgb: 255, 255, 255;
+  --text-on-accent: #18181b;
+}
+html.dark {
+  --bg: #0f172a;
+  --text: #f3f4f6;
+  --subtext: #a1a1aa;
+  --card: #1a202e;
+  --card-border: #334155;
+  --card-rgb: 24, 24, 27;
+  --text-on-accent: #f3f4f6;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root {
+  --button-bg: #f3f4f6;
+  --button-bg-hover: #e5e7eb;
+  --button-icon: #5d5d5d;
+  --accent: #faee64;
+}
+[data-theme="dark"],
+html.dark {
+  --button-bg: #232329;
+  --button-bg-hover: #334155;
+  --button-icon: #d8d8d8;
+  --accent: #e5a823;
+}
+
+/* ChatAssistant Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animate-bounce {
+  display: inline-block;
+  animation: bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Zoom animation for bot.gif */
+@keyframes zoom-in-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-zoom-in-out {
+  animation: zoom-in-out 1.6s ease-in-out infinite;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-modal-in {
+  animation: modal-in 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes bounce-in-modal {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(60px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-12px);
+  }
+  80% {
+    transform: scale(0.98) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.animate-bounce-in-modal {
+  animation: bounce-in-modal 0.55s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Calendly Widget Styles */
+.calendly-inline-widget,
+.calendly-popup-content {
+  z-index: 100;
+  position: relative;
+}
+
+.calendly-popup {
+  display: flex;
+  justify-content: center;
+}
+
+.calendly-popup-content {
+  width: 690px !important;
+}
+
+.calendly-overlay {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in;
+}
