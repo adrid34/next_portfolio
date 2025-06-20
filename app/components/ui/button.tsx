@@ -36,8 +36,7 @@ export function ThemeToggleButton() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="rounded-full p-2 md:p-3 shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sjsu-gold bg-slate-800 text-sjsu-gold dark:bg-sjsu-gold dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-yellow-400 transition-transform duration-150 hover:scale-105"
-      aria-pressed={theme === 'dark'}
+      className="rounded-full p-2 md:p-3 shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sjsu-gold bg-slate-800 text-sjsu-gold dark:bg-sjsu-gold dark:text-slate-800 hover:bg-slate-700 dark:hover:bg-yellow-400"
     >
       {theme === 'dark' ? <FaSun className="h-4 w-4 md:h-5 md:w-5" /> : <FaMoon className="h-4 w-4 md:h-5 md:w-5" />}
     </button>

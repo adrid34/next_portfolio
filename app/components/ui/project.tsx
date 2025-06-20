@@ -12,7 +12,10 @@ type ProjectProps = {
 export default function Project({ project }: ProjectProps) {
   const { name, image, description, tech, link, code } = project;
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4 transition-transform duration-200 hover:shadow-xl hover:scale-105">
+    <div
+      className="relative cursor-pointer rounded-3xl bg-gradient-to-br from-[var(--card)] to-[var(--card-border)] border border-[var(--card-border)] shadow-xl flex flex-col min-h-full flex-grow transition-transform duration-300 hover:scale-[1.025] hover:shadow-2xl group overflow-hidden"
+      style={{ backdropFilter: "blur(2px)" }}
+    >
       <div className="relative h-40 md:h-56 lg:h-72 rounded-t-3xl flex items-center overflow-hidden bg-[var(--bg)]">
         <Image
           src={image}

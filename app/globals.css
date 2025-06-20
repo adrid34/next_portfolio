@@ -235,12 +235,3 @@ html.dark {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.75);
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 1s ease-in;
-}

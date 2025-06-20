@@ -86,10 +86,6 @@ prisma/             # Prisma schema and migrations
 - For Vercel:  
   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project)
 
-## Contact
-
-For any inquiries, feel free to reach out via email: [adrianmadrid5245@gmail.com](mailto:adrianmadrid5245@gmail.com)
-
 ## License
 
 MIT

@@ -76,9 +76,6 @@ export default function Navbar() {
         id="links-container"
         className="flex overflow-x-auto scroll-hide items-center sm:gap-2 gap-1"
       >
-        <li>
-          <a href="#home" className="hover:text-primary transition-colors">Home</a>
-        </li>
         {renderedLinks}
       </ul>
     </motion.nav>

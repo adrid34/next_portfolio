@@ -46,47 +46,32 @@ function ContactForm() {
       }}
     >
       <div className="grid grid-cols-2 gap-4 mb-4">
-        <div>
-          <label htmlFor="email" className="block mb-1 text-sm font-medium">Email</label>
-          <TextInput
-            placeholder="E-mail"
-            type="email"
-            name="email"
-            required
-            max={100}
-            disabled={pending}
-            id="email"
-            aria-label="Email"
-          />
-        </div>
-        <div>
-          <label htmlFor="subject" className="block mb-1 text-sm font-medium">Subject</label>
-          <TextInput
-            placeholder="Subject"
-            name="subject"
-            required
-            min={3}
-            max={200}
-            disabled={pending}
-            id="subject"
-            aria-label="Subject"
-          />
-        </div>
-      </div>
-      <div className="mb-4">
-        <label htmlFor="message" className="block mb-1 text-sm font-medium">Message</label>
-        <TextArea
-          placeholder="Message"
-          className="flex-1"
-          name="message"
+        <TextInput
+          placeholder="E-mail"
+          type="email"
+          name="email"
           required
-          maxLength={5000}
-          minLength={10}
+          max={100}
           disabled={pending}
-          id="message"
-          aria-label="Message"
+        />
+        <TextInput
+          placeholder="Subject"
+          name="subject"
+          required
+          min={3}
+          max={200}
+          disabled={pending}
         />
       </div>
+      <TextArea
+        placeholder="Message"
+        className="mb-4 flex-1"
+        name="message"
+        required
+        maxLength={5000}
+        minLength={10}
+        disabled={pending}
+      />
       <div className="flex justify-end">
         <SubmitButton className="group px-6 py-2 rounded-full font-bold text-base bg-gradient-to-r from-[var(--accent)] to-yellow-300 text-gray-900 dark:text-gray-900 border-2 border-[var(--accent)] shadow-md flex items-center gap-2 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:from-yellow-200 hover:to-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
           Send Message{" "}

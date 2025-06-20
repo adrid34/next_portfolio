@@ -33,10 +33,7 @@ export default function Skills() {
         variants={itemVariants}
         className="will-change-transform"
       >
-        <div className="flex flex-col items-center group">
-          <img src={skill.image.src} alt={skill.name} className="w-12 h-12 object-contain" />
-          <span className="mt-2 text-xs text-gray-500 group-hover:visible group-hover:opacity-100 opacity-0 invisible absolute bg-gray-800 text-white rounded px-2 py-1 z-10 transition-all duration-200">{skill.name}</span>
-        </div>
+        <IconCard {...skill} />
       </motion.li>
     );
   });
@@ -45,7 +42,7 @@ export default function Skills() {
     <section
       ref={ref}
       id="skills"
-      className="scroll-mt-24 text-[var(--text)] transition-colors duration-300 mt-10 animate-fadeIn"
+      className="scroll-mt-24 text-[var(--text)] transition-colors duration-300"
     >
       <Header>Top Skills</Header>
       <motion.ul

@@ -69,7 +69,6 @@ export default function Projects() {
       ref={ref}
     >
       <Header>Projects</Header>
-      <p className="text-lg text-gray-400 mb-6">A selection of my favorite and most impactful projects, demonstrating a range of skills and technologies.</p>
       <ul className="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 md:auto-rows-fr">
         {projectCards}
       </ul>

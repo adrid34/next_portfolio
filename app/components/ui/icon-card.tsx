@@ -2,7 +2,6 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { IconType } from "react-icons";
-import React from "react";
 
 type IconCardProps = {
   name: string;
@@ -11,7 +10,12 @@ type IconCardProps = {
   href?: string;
 };
 
-const IconCard: React.FC<IconCardProps> = ({ name, icon: Icon, image, href }) => {
+export default function IconCard({
+  name,
+  icon: Icon,
+  image,
+  href,
+}: IconCardProps) {
   const cardContent = (
     <Fragment>
       <div className="flex justify-center w-full mb-2">
@@ -39,28 +43,22 @@ const IconCard: React.FC<IconCardProps> = ({ name, icon: Icon, image, href }) =>
   const hoverClass =
     "hover:scale-105 hover:shadow-lg hover:border-sjsu-gold hover:bg-[var(--card)] hover:text-sjsu-gold";
 
-  if (href) {
-    return (
-      <Link
-        href={href}
-        target="_blank"
-        className={`${baseCardClass} ${hoverClass}`}
-        aria-label={name}
-      >
-        <div className="skill-3d-inner h-24">{cardContent}</div>
-      </Link>
-    );
-  } else {
-    return (
-      <div
-        className={`${baseCardClass} ${hoverClass}`}
-        tabIndex={0}
-        aria-label={name}
-      >
-        <div className="skill-3d-inner h-24">{cardContent}</div>
-      </div>
-    );
-  }
-};
-
-export default IconCard;
+  return href ? (
+    <Link
+      href={href}
+      target="_blank"
+      className={`${baseCardClass} ${hoverClass}`}
+      aria-label={name}
+    >
+      <div className="skill-3d-inner h-24">{cardContent}</div>
+    </Link>
+  ) : (
+    <div
+      className={`${baseCardClass} ${hoverClass}`}
+      tabIndex={0}
+      aria-label={name}
+    >
+      <div className="skill-3d-inner h-24">{cardContent}</div>
+    </div>
+  );
+}

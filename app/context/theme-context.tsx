@@ -12,9 +12,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (window.localStorage.getItem('theme')) {
         return window.localStorage.getItem('theme') as 'light' | 'dark';
       }
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-      }
+      // Always default to dark, ignore system preference
+      return 'dark';
     }
     return 'dark';
   });

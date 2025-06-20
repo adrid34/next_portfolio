@@ -20,7 +20,7 @@ export default function Intro() {
         transition={{ duration: 0.4, delay: 0.5 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-center">
+        <h1 className="md:text-2xl text-xl sm:mb-6 mb-3 font-light tracking-wider text-gray-600 dark:text-gray-300">
           Welcome! I&apos;m
         </h1>
         <h1 className="md:text-7xl text-5xl font-bold sm:mb-2 mb-1 flex items-end text-[var(--text)]">
