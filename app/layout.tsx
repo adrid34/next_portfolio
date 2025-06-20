@@ -34,6 +34,18 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-02TC3NMQTB"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-02TC3NMQTB');
+  `}
+        </Script>
       </head>
       <body
         className={`relative ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center overflow-x-hidden w-full`}
