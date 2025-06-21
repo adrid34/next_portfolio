@@ -1,3 +1,20 @@
+-- =============================================================================
+-- Migration: 001_create_visitors_table.sql
+-- Description:
+-- This script creates the `visitors` table to store detailed information
+-- about users who visit the portfolio. The data captured includes IP-based
+-- geolocation, network details (ASN, company), and various security flags
+-- (e.g., whether the visitor is a crawler, using a VPN, etc.).
+--
+-- Table: visitors
+--   - id: Primary key for the record.
+--   - ip: The visitor's IP address.
+--   - Geolocation columns (city, state, country, lat, lon, etc.): Visitor's geographical data.
+--   - Network columns (org, asn, company, etc.): Information about the visitor's network provider.
+--   - Security flags (is_eu_member, is_datacenter, is_mobile, etc.): Boolean flags for various classifications.
+--   - created_at: Timestamp of when the record was created.
+-- =============================================================================
+
 CREATE TABLE visitors (
   id SERIAL PRIMARY KEY,
   ip INET NOT NULL,
