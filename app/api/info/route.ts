@@ -20,5 +20,5 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify(analyticsData),
   }).then((res) => res.json());
 
-  return NextResponse.json({ success: true, ip });
+  return NextResponse.json({ success: true });
 }
