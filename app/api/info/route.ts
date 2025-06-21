@@ -3,10 +3,7 @@ import { Client } from "pg";
 
 export async function POST(req: NextRequest) {
   const deviceData = await req.json();
-  // Get IP address
-  const forwarded = req.headers.get("x-forwarded-for");
-  const ip = forwarded ? forwarded.split(",")[0] : req.ip || "";
-  console.log(ip);
+  const ip = (req.headers.get("x-forwarded-for") ?? "127.0.0.1").split(",")[0];
 
   const analyticsData = {
     ip,
@@ -14,7 +11,8 @@ export async function POST(req: NextRequest) {
   };
 
   const analyticsUrl =
-    process.env.ANALYTICS_URL || "https://portfolio-analytic.vercel.app";
+    process.env.ANALYTICS_URL ||
+    "https://portfolio-analytic.vercel.app/add-data";
 
   const analyticsResponse = await fetch(analyticsUrl, {
     method: "POST",
@@ -22,5 +20,5 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify(analyticsData),
   }).then((res) => res.json());
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true, ip });
 }
