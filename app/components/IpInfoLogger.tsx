@@ -25,5 +25,5 @@ export default function IpInfoLogger() {
     })();
   }, []);
 
-  return null;
+  return <div>ip: {ip}</div>;
 }
