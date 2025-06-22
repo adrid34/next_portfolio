@@ -17,6 +17,8 @@
     "framer-motion": "^11.3.30",
     "next": "14.2.6",
     "pg": "^8.16.2",
+    "posthog-js": "^1.255.1",
+    "posthog-node": "^5.1.1",
     "react": "^18",
     "react-archer": "^4.4.0",
     "react-calendly": "^4.4.0",

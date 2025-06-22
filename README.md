@@ -133,3 +133,37 @@ Contributions are welcome! If you have ideas for improvements, feel free to open
 ## 📄 License
 
 This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+# PostHog Analytics Integration
+
+This project uses [PostHog](https://posthog.com/) for analytics.
+
+## Setup Instructions
+
+1. **Install dependencies**
+   ```bash
+   npm install posthog-js posthog-node
+   ```
+
+2. **Set environment variables**
+   Create a `.env.local` file in the project root with the following:
+   ```env
+   NEXT_PUBLIC_POSTHOG_KEY=your_project_api_key
+   NEXT_PUBLIC_POSTHOG_HOST=https://us.posthog.com
+   ```
+   Replace `your_project_api_key` with your actual PostHog project API key (find it in your PostHog project settings).
+
+3. **Reverse Proxy**
+   The project is configured to proxy analytics requests through `/ingest` to PostHog's US servers. This helps with ad blockers and privacy. See `next.config.mjs` for details.
+
+4. **Provider Setup**
+   The app is already wrapped with the PostHogProvider in `app/layout.tsx`.
+
+5. **Custom Events**
+   You can track custom events using the PostHog client in your components:
+   ```js
+   import posthog from 'posthog-js';
+   posthog.capture('event_name', { property: 'value' });
+   ```
+
+---
